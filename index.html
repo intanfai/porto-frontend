@@ -5,30 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intan Nurul Faizia — Front-End Developer</title>
 
-    <!-- 4 font sesuai design system baru: Manrope (UI), Cabin (tombol/tag), 
-         Instrument Serif (headline), Inter (body). Semua di-load sekali di sini
-         biar browser cuma download 1x untuk semua halaman. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
       :root {
-        --purple: #7b39fc; /* warna utama (primary) */
-        --purple-light: #9b6bfd; /* varian lebih terang, buat hover/aksen teks */
-        --purple-soft: rgba(123, 57, 252, 0.16); /* ungu tipis, buat background pill/tag */
-        --dark: #2b2344; /* warna sekunder/gelap */
-        --dark-deep: #19142c; /* dasar background seluruh halaman */
-        --dark-light: #372c57; /* hover state untuk tombol gelap */
+        --purple: #7b39fc;
+        --purple-light: #9b6bfd;
+        --purple-soft: rgba(123, 57, 252, 0.16);
+        --dark: #2b2344;
+        --dark-deep: #19142c;
+        --dark-light: #372c57;
 
-        --glass-bg: rgba(85, 80, 110, 0.35); /* kaca buram versi ungu (dipakai di hero) */
+        --glass-bg: rgba(85, 80, 110, 0.35);
         --glass-border: rgba(164, 132, 215, 0.45);
-        --card-bg: rgba(255, 255, 255, 0.04); /* kaca buram netral (dipakai di card) */
+        --card-bg: rgba(255, 255, 255, 0.04);
         --card-border: rgba(255, 255, 255, 0.09);
 
         --off-white: #fafafa;
         --off-white-2: #f6f7f9;
-        --text-soft: rgba(255, 255, 255, 0.72); /* teks body di atas background gelap */
+        --text-soft: rgba(255, 255, 255, 0.72);
         --text-softer: rgba(255, 255, 255, 0.55);
 
         --font-ui: "Manrope", sans-serif;
@@ -57,9 +54,9 @@
 
       h1,
       h2 {
-        font-family: var(--font-head); /* headline pakai serif display font */
+        font-family: var(--font-head);
         color: var(--off-white);
-        font-weight: 400; /* Instrument Serif nggak butuh bold, dia elegan dari bentuknya */
+        font-weight: 400;
       }
 
       h3,
@@ -103,13 +100,13 @@
       }
 
       h2.section-title {
-        font-family: var(--font-ui); /* diganti dari font-head (serif) ke Manrope (sans-serif) */
-        font-weight: 800; /* dibikin extra bold biar kesan "besar & tegas" kayak referensi */
+        font-family: var(--font-ui);
+        font-weight: 800;
         font-size: clamp(30px, 4.5vw, 42px);
         max-width: 560px;
-        margin-bottom: 24px; /* dikecilin dikit dari 48px, karena sekarang ada garis aksen yang butuh jarak sendiri di bawahnya */
+        margin-bottom: 24px;
         position: relative;
-        padding-bottom: 22px; /* kasih ruang buat garis aksen supaya nggak nempel teks */
+        padding-bottom: 22px;
       }
 
       h2.section-title::after {
@@ -123,26 +120,22 @@
         background: var(--purple);
       }
 
-      /* card "kaca" reusable, dipakai di stat-box, edu-card, tl-item, portfolio-item, cert-card.
-         ditambahin transition + :hover di sini SEKALI, otomatis kepakai ke semua card
-         yang pakai class ini — nggak perlu nulis hover effect berulang per jenis card */
       .glass-card {
         background: var(--card-bg);
         border: 1px solid var(--card-border);
         border-radius: 14px;
         backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px); /* buat kompatibilitas Safari */
+        -webkit-backdrop-filter: blur(10px);
         transition:
           transform 0.25s ease,
           border-color 0.25s ease,
           box-shadow 0.25s ease;
       }
       .glass-card:hover {
-        transform: translateY(-4px); /* card naik dikit pas disentuh kursor */
+        transform: translateY(-4px);
         border-color: var(--glass-border);
         box-shadow: 0 14px 32px rgba(123, 57, 252, 0.18);
       }
-      /* ===== GLOSSY HEADER ===== */
 
       header {
         position: fixed;
@@ -166,7 +159,6 @@
         overflow: hidden;
       }
 
-      /* glossy highlight */
       header::before {
         content: "";
         position: absolute;
@@ -189,8 +181,6 @@
         justify-content: space-between;
       }
 
-      /* ===== LOGO ===== */
-
       .logo {
         position: relative;
         z-index: 1;
@@ -207,8 +197,6 @@
       .logo span {
         color: var(--purple-light);
       }
-
-      /* ===== NAV LINKS ===== */
 
       .nav-links {
         display: flex;
@@ -241,7 +229,6 @@
         text-shadow: 0 0 12px rgba(167, 139, 250, 0.45);
       }
 
-      /* underline glow */
       .nav-links a::after {
         content: "";
 
@@ -265,8 +252,6 @@
       .nav-links a:hover::after {
         width: 18px;
       }
-
-      /* ===== MOBILE BUTTON ===== */
 
       .nav-toggle {
         position: relative;
@@ -295,7 +280,6 @@
         transition: 0.25s ease;
       }
 
-      /* ===== HERO ===== */
       .hero {
         position: relative;
         min-height: 100vh;
@@ -304,8 +288,6 @@
         justify-content: center;
         overflow: hidden;
       }
-      /* video full-screen di belakang konten hero, TANPA overlay gelap
-         sesuai request — cuma object-fit:cover biar videonya nggak gepeng */
       .hero-video {
         position: absolute;
         inset: 0;
@@ -341,7 +323,6 @@
         display: block;
       }
 
-      /* pill "kaca" khas di atas headline */
       .hero-pill {
         display: inline-flex;
         align-items: center;
@@ -424,8 +405,6 @@
         background: var(--dark-light);
       }
 
-      /* ===== ABOUT LAYOUT ===== */
-
       .about-layout {
         display: grid;
         grid-template-columns: 0.9fr 1.1fr;
@@ -445,8 +424,6 @@
         color: var(--text-soft);
         margin-bottom: 14px;
       }
-
-      /* ===== ABOUT PHOTO ===== */
 
       .about-photo {
         position: relative;
@@ -491,8 +468,6 @@
           0 0 35px rgba(139, 92, 246, 0.12);
       }
 
-      /* ===== ABOUT RIGHT ===== */
-
       .about-right {
         display: flex;
         flex-direction: column;
@@ -527,28 +502,9 @@
         line-height: 1.5;
       }
 
-      /* ===== ABOUT HIGHLIGHT ===== */
-
       .about-highlight {
         padding: 20px 24px;
         min-height: auto;
-      }
-
-      .h-label {
-        display: block;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        color: var(--purple-light);
-        margin-bottom: 8px;
-      }
-
-      .h-text {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.6;
-        color: var(--text-soft);
-        max-width: 600px;
       }
 
       .h-label {
@@ -567,8 +523,6 @@
         line-height: 1.7;
         color: var(--text-soft);
       }
-
-      /* ===== RESPONSIVE ===== */
 
       @media (max-width: 800px) {
         .about-layout {
@@ -596,7 +550,6 @@
         }
       }
 
-      /* ===== EDUCATION ===== */
       .education .wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -666,7 +619,6 @@
         border-radius: 50%;
       }
 
-      /* ===== EXPERIENCE (versi ringkas: title + 1 baris deskripsi) ===== */
       .timeline {
         position: relative;
         padding-left: 56px;
@@ -743,8 +695,6 @@
         line-height: 1.5;
       }
 
-      /* ===== PORTFOLIO / PROJECTS ===== */
-
       .portfolio-grid {
         display: grid;
         gap: 22px;
@@ -781,7 +731,6 @@
         margin-top: 14px;
       }
 
-      /* tag skill di portfolio */
       .tag {
         font-family: var(--font-btn);
         font-size: 12.5px;
@@ -799,8 +748,6 @@
         background: var(--purple);
         color: #fff;
       }
-
-      /* ===== PORTFOLIO BUTTONS ===== */
 
       .portfolio-actions {
         display: flex;
@@ -827,7 +774,6 @@
         background: var(--purple);
       }
 
-      /* Watch Demo button */
       .demo-btn {
         display: inline-flex;
         align-items: center;
@@ -857,6 +803,41 @@
         background: transparent;
         border-color: var(--purple);
         transform: translateY(-1px);
+      }
+
+      .github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        font-family: var(--font-btn);
+        font-weight: 500;
+        font-size: 13.5px;
+
+        color: var(--off-white);
+        background: transparent;
+
+        border: 1.5px solid var(--card-border);
+        padding: 9px 18px;
+        border-radius: 8px;
+
+        text-decoration: none;
+        white-space: nowrap;
+
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .github-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--purple-light);
+        transform: translateY(-1px);
+      }
+      .github-btn svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
       }
 
       .portfolio-detail {
@@ -901,8 +882,6 @@
         color: var(--purple-light);
       }
 
-      /* ===== PROJECT VIDEO DEMO ===== */
-
       .project-demo {
         margin-top: 24px;
       }
@@ -931,8 +910,6 @@
         display: block;
       }
 
-      /* ===== RESPONSIVE ===== */
-
       @media (max-width: 700px) {
         .portfolio-actions {
           width: 100%;
@@ -940,13 +917,14 @@
         }
 
         .read-more-btn,
-        .demo-btn {
+        .demo-btn,
+        .github-btn {
           flex: 1;
           text-align: center;
+          justify-content: center;
         }
       }
 
-      /* ===== SKILLS ===== */
       .skill-groups {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -965,7 +943,6 @@
         flex-wrap: wrap;
         gap: 8px;
       }
-      /* skill pill: border-nya nyala ungu + background dikit pas di-hover kursor */
       .skill-pills span {
         font-family: var(--font-btn);
         font-size: 13.5px;
@@ -984,7 +961,6 @@
         background: var(--purple-soft);
       }
 
-      /* ===== CERTIFICATES ===== */
       .cert-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1038,7 +1014,7 @@
         border-color: rgba(255, 255, 255, 0.35);
         transform: translateY(-2px);
       }
-      /* ===== CONTACT ===== */
+
       .contact-description {
         max-width: 600px;
         font-size: 15.5px;
@@ -1117,7 +1093,6 @@
         }
       }
 
-      /* ===== SCROLL REVEAL ===== */
       .reveal {
         opacity: 0;
         transform: translateY(22px);
@@ -1133,7 +1108,6 @@
     </style>
   </head>
   <body>
-    <!-- partikel jadi ambient background untuk SEMUA section selain hero -->
     <div id="particles-bg" aria-hidden="true"></div>
 
     <header>
@@ -1153,7 +1127,6 @@
     </header>
 
     <section class="hero" id="home">
-      <!-- Background video -->
       <video class="hero-video" autoplay loop muted playsinline>
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260210_031346_d87182fb-b0af-4273-84d1-c6fd17d6bf0f.mp4" type="video/mp4" />
       </video>
@@ -1171,13 +1144,13 @@
         <div class="btn-row">
           <a href="#contact" class="btn btn-primary">Get in Touch</a>
           <a href="#portfolio" class="btn btn-outline">Explore Portfolio</a>
+          <a href="asset/CV-Intan-Nurul-Faizia.pdf" download class="btn btn-outline">Download CV</a>
         </div>
       </div>
     </section>
 
     <section class="about" id="about">
       <div class="wrap about-layout">
-        <!-- LEFT : ABOUT TEXT -->
         <div class="about-intro">
           <h2 class="section-title">A little about me.</h2>
 
@@ -1190,7 +1163,6 @@
           </div>
         </div>
 
-        <!-- RIGHT : STATS -->
         <div class="about-right">
           <div class="about-stats">
             <div class="stat-box glass-card reveal" style="--i: 0">
@@ -1273,7 +1245,6 @@
         <h2 class="section-title">Project Case Studies</h2>
 
         <div class="portfolio-grid">
-          <!-- PROJECT 1 -->
           <div class="portfolio-item glass-card reveal" style="--i: 0">
             <div class="portfolio-item-head">
               <div>
@@ -1305,7 +1276,6 @@
               <h4>Result</h4>
               <p>The LMS interface was successfully built to match the design and works across devices, with a component structure that makes future feature development easier.</p>
 
-              <!-- VIDEO DEMO -->
               <div class="project-demo">
                 <h4>Project Demo</h4>
 
@@ -1324,7 +1294,6 @@
             </div>
           </div>
 
-          <!-- PROJECT 2 -->
           <div class="portfolio-item glass-card reveal" style="--i: 1">
             <div class="portfolio-item-head">
               <div>
@@ -1355,7 +1324,6 @@
               <h4>Result</h4>
               <p>The system now supports the equipment loan flow digitally, with improvements based on direct user feedback during evaluation.</p>
 
-              <!-- VIDEO DEMO -->
               <div class="project-demo">
                 <h4>Project Demo</h4>
 
@@ -1373,7 +1341,6 @@
             </div>
           </div>
 
-          <!-- PROJECT 3 -->
           <div class="portfolio-item glass-card reveal" style="--i: 2">
             <div class="portfolio-item-head">
               <div>
@@ -1382,7 +1349,17 @@
                 <p class="short-desc">Interface for an internship information system to manage hospital intern data.</p>
               </div>
 
-              <button class="read-more-btn">Read more</button>
+              <div class="portfolio-actions">
+                <a href="https://github.com/vinsensiuskurniaputra/hospital_intern.git" target="_blank" rel="noopener noreferrer" class="github-btn">
+                  <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+                <button class="read-more-btn">Read more</button>
+              </div>
             </div>
 
             <div class="tag-row">
@@ -1458,7 +1435,6 @@
         <h2 class="section-title">Certifications</h2>
 
         <div class="cert-grid">
-          <!-- MTCNA -->
           <div class="cert-card glass-card reveal" style="--i: 0">
             <div class="cert-org">MikroTik · Feb 2026</div>
             <h3>MikroTik Certified Network Associate (MTCNA)</h3>
@@ -1468,7 +1444,6 @@
             <a href="https://drive.google.com/file/d/1WfE6biY_g2wdBC2rjFcBwxiUof8F7Dcf/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-button"> View Certificate ↗ </a>
           </div>
 
-          <!-- Database Programming with SQL -->
           <div class="cert-card glass-card reveal" style="--i: 1">
             <div class="cert-org">Oracle Academy · Dec 2024</div>
             <h3>Database Programming with SQL</h3>
@@ -1477,7 +1452,6 @@
             <a href="https://drive.google.com/file/d/1F83EDMP8db0gSPfYrFkE1yWq2IvsceV-/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-button"> View Certificate ↗ </a>
           </div>
 
-          <!-- Database Design -->
           <div class="cert-card glass-card reveal" style="--i: 2">
             <div class="cert-org">Oracle Academy · 2024</div>
             <h3>Database Design</h3>
@@ -1486,7 +1460,6 @@
             <a href="https://drive.google.com/file/d/1b0I1bdCmw-KAoHOqdxcIc-DoeTLr527s/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-button"> View Certificate ↗ </a>
           </div>
 
-          <!-- TEPPS -->
           <div class="cert-card glass-card reveal" style="--i: 3">
             <div class="cert-org">UPA Bahasa, Polines · Jan 2026</div>
             <h3>TEPPS — English Proficiency Test</h3>
@@ -1506,31 +1479,26 @@
         <p class="contact-description">Open to internship opportunities and entry-level front-end development roles. Feel free to reach out through any of the channels below.</p>
 
         <div class="contact-grid">
-          <!-- Email -->
           <div class="contact-card glass-card">
             <span class="c-label">EMAIL</span>
             <a class="c-value" href="mailto:intannurul28032005@gmail.com"> intannurul28032005@gmail.com </a>
           </div>
 
-          <!-- Phone -->
           <div class="contact-card glass-card">
             <span class="c-label">PHONE</span>
             <a class="c-value" href="tel:085374174230"> 085374174230 </a>
           </div>
 
-          <!-- LinkedIn -->
           <div class="contact-card glass-card">
             <span class="c-label">LINKEDIN</span>
             <a class="c-value" href="https://www.linkedin.com/in/intan-nurul-faizia-29b545272" target="_blank" rel="noopener noreferrer"> linkedin.com/in/intan-nurul-faizia </a>
           </div>
 
-          <!-- GitHub -->
           <div class="contact-card glass-card">
             <span class="c-label">GITHUB</span>
             <a class="c-value" href="https://github.com/intanfai" target="_blank" rel="noopener noreferrer"> github.com/intanfai </a>
           </div>
 
-          <!-- Location -->
           <div class="contact-card glass-card">
             <span class="c-label">LOCATION</span>
             <span class="c-value">Semarang, Indonesia</span>
@@ -1545,7 +1513,6 @@
     <script>
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      // toggle menu mobile
       const navToggle = document.getElementById("navToggle");
       const navLinks = document.querySelector(".nav-links");
       navToggle.addEventListener("click", () => {
@@ -1553,7 +1520,6 @@
         navLinks.style.cssText += "flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#19142c;padding:20px 32px;gap:16px;";
       });
 
-      // read more / less toggle
       document.querySelectorAll(".read-more-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const detail = btn.closest(".portfolio-item").querySelector(".portfolio-detail");
@@ -1568,7 +1534,6 @@
         });
       });
 
-      // scroll reveal + counter angka
       if (!prefersReducedMotion && "IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver(
           (entries) => {
@@ -1614,7 +1579,6 @@
         });
       }
 
-      // partikel ambient
       if (!prefersReducedMotion && window.tsParticles) {
         tsParticles.load("particles-bg", {
           fullScreen: { enable: true, zIndex: -1 },
